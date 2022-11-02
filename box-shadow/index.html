@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Shadow is Ultra Cool!</title>
+  </head>
+  <body class="flex justify-center align-middle h-screen p-5">
+    <section class="flex flex-col gap-y-10 p-5 overflow-scroll w-screen">
+      <div>
+        <h1 class="text-center">First example</h1>
+        <div class="flex gap-x-10 justify-center">
+          <div class="h-20 w-20 bg-green-500 normal-shadow"></div>
+          <div class="h-20 w-20 bg-red-500 reverse-shadow"></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-center">Second example</h1>
+        <div class="flex justify-center">
+          <div class="box h-40 w-40 bg-white rounded-3xl"></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-center">Hover</h1>
+        <div class="flex gap-x-10 justify-center">
+          <div
+            class="box h-40 w-40 bg-white rounded-3xl transition-all hover:-translate-y-2"
+          ></div>
+          <div
+            class="box2 h-40 w-40 bg-white rounded-3xl transition-all hover:translate-y-2"
+          ></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-center">With Scale</h1>
+        <div class="flex justify-center gap-x-10">
+          <div
+            class="box h-40 w-40 bg-white rounded-3xl transition-all hover:-translate-y-2"
+          ></div>
+          <div
+            class="box h-40 w-40 bg-white rounded-3xl transition-all hover:scale-110"
+          ></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-center">Multi-layered</h1>
+        <div class="flex justify-center gap-x-10">
+          <div
+            class="box h-40 w-40 bg-white rounded-3xl transition-all hover:-translate-y-2"
+          ></div>
+          <div
+            class="box3 h-40 w-40 bg-white rounded-3xl transition-all hover:scale-110"
+          ></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-center">Colored</h1>
+        <div class="flex justify-center gap-x-10 bg-gray-500 py-5">
+          <div
+            class="box4 h-40 w-40 bg-black rounded-3xl transition-all hover:-translate-y-2"
+          ></div>
+          <div
+            class="box4-reversed h-40 w-40 bg-black rounded-3xl transition-all hover:translate-y-2"
+          ></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-center">Colored Layered</h1>
+        <div class="flex justify-center gap-x-10 bg-gray-500 py-5">
+          <div
+            class="box5 h-40 w-40 bg-black rounded-3xl transition-all hover:translate-y-2"
+          ></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-center">Skeuomorphism</h1>
+        <div class="flex justify-center gap-x-10 bg-gray-200 py-5">
+          <div
+            class="box-skeu-outside h-40 w-40 bg-white rounded-3xl transition-all hover:-translate-y-2"
+          ></div>
+          <div
+            class="box-skeu-inside h-40 w-40 bg-white rounded-3xl transition-all hover:scale-110"
+          ></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-center">Skeuomorphism 2</h1>
+        <div class="flex justify-center gap-x-10 bg-gray-200 py-5">
+          <div
+            class="box-skeu-outside-2 h-40 w-40 bg-white rounded-3xl transition-all hover:-translate-y-2"
+          ></div>
+          <div
+            class="box-skeu-inside-2 h-40 w-40 bg-white rounded-3xl transition-all hover:scale-110"
+          ></div>
+          <div
+            class="circle h-40 w-40 bg-white rounded-full transition-all relative flex items-center justify-center"
+          ></div>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-center">Checkbox</h1>
+        <div class="flex justify-center gap-x-10 bg-gray-200 py-5">
+          <input type="checkbox"  />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
