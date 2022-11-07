@@ -1,0 +1,48 @@
+:root {
+  --bg: #f4f4f4;
+  --ribbon: #4b9ae5;
+  --tail: darkblue;
+  --ribbonSize: 0.5em;
+  --fontSize: 2.5em;
+}
+
+.ribbon {
+  background: var(--ribbon);
+  display: inline-block;
+  color: var(--bg);
+  padding: var(--ribbonSize) 0.7em;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  position: relative;
+  font-size: var(--font-size);
+  text-transform: uppercase;
+  transform-style: preserve-3d;
+  transform: rotate(-20deg) skew(-20deg, 10deg);
+  height: fit-content;
+}
+
+.ribbon::after,
+.ribbon::before {
+  content: "";
+  width: 0;
+  height: 2em;
+  display: block;
+  background: #4993da;
+  position: absolute;
+  border-style: solid;
+  border-width: var(--ribbonSize);
+  z-index: -1; // only necessary for flat (transform-style)
+  transform: translateZ(-1em); // orders the ribbon tails
+}
+
+.ribbon::after {
+  left: var(--ribbonSize) * -1;
+  top: var(--ribbonSize);
+  border-color: var(--tail) darken(var(--tail), 10%) var(--tail) var(--tail);
+}
+
+.ribbon::before {
+  right: var(--ribbonSize) * -1;
+  top: var(--ribbonSize) * -1;
+  border-color: var(--tail) var(--tail) var(--tail) darken(var(--tail), 10%);
+}
