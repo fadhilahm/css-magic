@@ -19,7 +19,6 @@ const createRipple = (event) => {
     ripple.remove();
   }
 
-  console.log("is this called?");
   // Inject the effect inside the button element.
   button.appendChild(circle);
 };
