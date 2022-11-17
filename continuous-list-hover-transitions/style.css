@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: var(--paper);
+  background: var(--paper);
 }
 
 .hover-effect-list a {
@@ -23,7 +23,7 @@ body {
     to bottom,
     var(--paper) 0%,
     var(--paper) 50%,
-    var(--ink) 50%‰
+    var(--ink) 50%
   );
 
   background-size: 100% 200%;

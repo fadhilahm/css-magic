@@ -1,4 +1,8 @@
-const initializeHoverLists = () => {
+//More performant version using translate3D is here: https://codepen.io/walpolea/pen/xxWjRjX
+
+initializeHoverLists();
+
+function initializeHoverLists() {
   const movingUp = () => {
     document.documentElement.style.setProperty("--animation-in", "hover-up");
     document.documentElement.style.setProperty("--animation-out", "unhover-up");
@@ -20,10 +24,10 @@ const initializeHoverLists = () => {
       const activeEvents = ["mouseenter", "focus"];
       const deactiveEvents = ["mouseleave", "blur"];
 
-      // On Hover/Focus
+      //On Hover/Focus
       activeEvents.forEach((event) => {
         li.addEventListener(event, (e) => {
-          // Is it the current above or below the last?
+          //is the current above or below the last?
           if (e.currentTarget === window.lastHovered) {
             e.offsetY < e.currentTarget.offsetHeight * 0.5
               ? movingDown()
@@ -37,21 +41,17 @@ const initializeHoverLists = () => {
         });
       });
 
-      // On MouseOut/Blur
+      //On MouseOut/Blur
       deactiveEvents.forEach((event) => {
         li.addEventListener(event, (e) => {
-          effectEls.forEach((li) => {
-            li.classList.remove("last");
-          });
+          effectEls.forEach((li) => li.classList.remove("last"));
           e.currentTarget.classList.add("last");
-        });
 
-        // interesting effect here instead of removing 'last' class from all at once, I like it!
-        // const l = e.currentTarget;
-        // setTimeout( () =>l.classList.remove('last'), 333 );
+          //interesting effect here instead of removing 'last' class from all at once, I like it!
+          // const l = e.currentTarget;
+          // setTimeout( () =>l.classList.remove('last'), 333 );
+        });
       });
     });
   }
-};
-
-initializeHoverLists();
+}
