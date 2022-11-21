@@ -34,5 +34,49 @@
         <div class="scroll-to-an-element__scroll-target">Target Scroll</div>
       </div>
     </div>
+    <div>
+      <div>Select an element or list of elements</div>
+      <div id="select-an-element-or-list-of-elements__id">
+        Select an element by given ID
+      </div>
+      <div class="select-an-element-or-list-of-elements__classname">
+        Select elements by class name
+      </div>
+      <span>Select elements by tag name</span>
+      <div class="select-an-element-or-list-of-elements__selector">
+        Select elements by CSS selector1
+      </div>
+      <div class="select-an-element-or-list-of-elements__selector">
+        Select elements by CSS selector2
+      </div>
+    </div>
+    <div>
+      <div>Scroll to top of the page</div>
+      <div class="flex justify-center">
+        <button
+          class="rounded bg-green-300 shadow-md px-3"
+          onclick="(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        })
+      })()"
+        >
+          Click to Scroll UP
+        </button>
+      </div>
+    </div>
+    <div>
+      <div>Select the text of a textarea automatically</div>
+      <textarea
+        class="rounded border-green-400 border-2"
+        id="select-the-text-of-a-textarea-automatically"
+        cols="30"
+        rows="10"
+      >
+Hello there!</textarea
+      >
+    </div>
   </body>
 </html>
