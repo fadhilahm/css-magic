@@ -44,3 +44,55 @@ document
     // Select the text
     e.target.select();
   });
+
+// Serialize form data into a query string.
+const serialize = (formEle) => {
+  // Get all fields.
+  const fields = [].slice.call(formEle.elements, 0);
+
+  return fields
+    .map((ele) => {
+      const name = ele.name;
+      const type = ele.type;
+
+      // We ignore
+      // - field that doesn't have a name.
+      // - disabled field.
+      // - field input.
+      // - unselected checkout/radio
+      if (
+        !name ||
+        ele.disabled ||
+        type === "file" ||
+        (/(checkbox|radio)/.test(type) && !ele.checked)
+      ) {
+        return "";
+      }
+
+      // Multiple select
+      if (type === "select-multiple") {
+        return ele.options
+          .map((opt) => {
+            return opt.selected
+              ? `${encodeURIComponent(name)}=${encodeURIComponent(opt.value)}`
+              : "";
+          })
+          .filter((item) => {
+            return item;
+          })
+          .join("&");
+      }
+
+      return `${encodeURIComponent(name)}=${encodeURIComponent(ele.value)}`;
+    })
+    .filter((item) => item)
+    .join(`&`);
+};
+
+const form = document.querySelector(".serialize-form-data-into-a-query-string");
+setInterval(() => {
+  const serializedString = serialize(
+    document.querySelector(".serialize-form-data-into-a-query-string")
+  );
+  console.log("serialized string => ", serializedString);
+}, 500);
