@@ -110,3 +110,23 @@ setCSSStyle.style.cssText = "background-color: pink; color: white;";
 
 // Remove a CSS style
 // setCSSStyle.style.removeProperty("background-color");
+
+// Selec the text content of an element.
+const selectText = (ele) => {
+  const selection = window.getSelection();
+  const range = document.createRange();
+  range.selectNodeContents(ele);
+  selection.removeAllRanges();
+  selection.addRange(range);
+};
+
+const selectTextElement = document.querySelector(
+  ".select-the-text-content-of-an-element__button"
+);
+
+selectTextElement.addEventListener("click", () => {
+  const wantToBeSelected = document.querySelector(
+    ".select-the-text-content-of-an-element__text"
+  );
+  selectText(wantToBeSelected);
+});
