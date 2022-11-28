@@ -96,3 +96,17 @@ setInterval(() => {
   );
   console.log("serialized string => ", serializedString);
 }, 500);
+
+const setCSSStyle = document.querySelector(".set-css-style-for-an-element");
+setCSSStyle.style.backgroundColor = "blue";
+setCSSStyle.style["backgroundColor"] = "green";
+setCSSStyle.style["background-color"] = "red";
+
+// Add new style
+setCSSStyle.style.cssText += "background-color: pink; color: white;";
+
+// Ignore previous style
+setCSSStyle.style.cssText = "background-color: pink; color: white;";
+
+// Remove a CSS style
+// setCSSStyle.style.removeProperty("background-color");
