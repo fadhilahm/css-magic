@@ -135,3 +135,15 @@ selectTextElement.addEventListener("click", () => {
 const elementToHide = document.querySelector(".show-or-hide-an-element");
 elementToHide.style.display = "none";
 elementToHide.style.display = "";
+
+// Strip HTML from a Given Text
+const stripHtml = (html) => {
+  const ele = document.createElement("template");
+  ele.innerHTML = html;
+  return ele.content.textContent || "";
+};
+
+const toBeStripped = document.querySelector(".strip-html-from-a-given-text");
+const strippedHtml = stripHtml(toBeStripped.innerHTML) ;
+console.log('stripHTML')
+console.log(strippedHtml);
