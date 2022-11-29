@@ -121,5 +121,23 @@ Hello there!</textarea
         <span>This is a normal span text</span>
       </div>
     </div>
+    <div class="flex flex-col items-center justify-center">
+      <h2>Toggle an element</h2>
+      <div
+        class="toggle-an-element bg-pink-600 w-32 h-32 flex items-center justify-center"
+      >
+        TOGGLE THIS ELEMENT
+      </div>
+      <button
+        class="rounded shadow-lg bg-lime-400 px-5 mt-3"
+        onclick="(() => {
+        const ele = document.querySelector('.toggle-an-element')
+        const display = ele.style.display;
+        ele.style.display = display === 'none' ? 'flex' : 'none'
+      })()"
+      >
+        Click to Toggle
+      </button>
+    </div>
   </body>
 </html>
