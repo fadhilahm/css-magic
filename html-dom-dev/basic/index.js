@@ -144,6 +144,38 @@ const stripHtml = (html) => {
 };
 
 const toBeStripped = document.querySelector(".strip-html-from-a-given-text");
-const strippedHtml = stripHtml(toBeStripped.innerHTML) ;
-console.log('stripHTML')
+const strippedHtml = stripHtml(toBeStripped.innerHTML);
+console.log("stripHTML");
 console.log(strippedHtml);
+
+// Submit a Form with Ajax
+const submit = (formEle) => {
+  return new Promise((resolve, reject) => {
+    const params = serialize(formEle);
+
+    const req = new XMLHttpRequest();
+    req.open("POST", formEle.action, true);
+    req.setRequestHeader(
+      "Content-Type",
+      "application/x-www-form-urlencoded; charset=UTF-8"
+    );
+
+    req.onload = () => {
+      if (req.status >= 200 && req.status < 400) {
+        resolve(req.responseText);
+      }
+    };
+
+    req.onerror = () => {
+      reject();
+    };
+
+    req.send(params);
+  });
+};
+const form2 = document.querySelector(
+  ".serialize-form-data-into-a-query-string"
+);
+submit(form2).then((response) => {
+  const data = JSON.parse(response);
+});
