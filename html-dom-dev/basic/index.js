@@ -179,3 +179,49 @@ const form2 = document.querySelector(
 submit(form2).then((response) => {
   const data = JSON.parse(response);
 });
+
+// Trigger an event
+
+// For text box and textarea
+const textArea = document.querySelector(".trigger-an-event__textarea");
+// setInterval(() => {
+//   console.log("textarea focus()");
+//   textArea.focus();
+//   console.log("textarea blur()");
+//   textArea.blur();
+// }, 200);
+
+// For form element
+const formEle = document.querySelector(".trigger-an-event__form");
+// setInterval(() => {
+//   // formEle.submit();
+//   formEle.reset();
+// }, 200)
+
+// Trigger a native event
+const trigger = (ele, eventName) => {
+  const e = document.createEvent("HTMLEvents");
+  e.initEvent(eventName, true, false);
+  ele.dispatchEvent(e);
+};
+// setInterval(() => {
+//   const toggledElement = document.querySelector('.toggle-an-element__button');
+//   trigger(toggledElement, 'click')
+// }, 200)
+
+// Trigger a custom event
+const customEvent = new CustomEvent("hello-happy-world", {
+  detail: {
+    message: "HALO SENANG DUNIA",
+  },
+});
+
+// Trigger the event
+const toggledElement = document.querySelector(".toggle-an-element__button");
+toggledElement.addEventListener("hello-happy-world", (e) => {
+  console.log(e.detail.message);
+});
+// setInterval(() => {
+//   console.log("DISPATCH CUSTOM EVENT");
+//   toggledElement.dispatchEvent(customEvent);
+// }, 200);

@@ -129,7 +129,7 @@ Hello there!</textarea
         TOGGLE THIS ELEMENT
       </div>
       <button
-        class="rounded shadow-lg bg-lime-400 px-5 mt-3"
+        class="toggle-an-element__button rounded shadow-lg bg-lime-400 px-5 mt-3"
         onclick="(() => {
         const ele = document.querySelector('.toggle-an-element')
         const display = ele.style.display;
@@ -138,6 +138,22 @@ Hello there!</textarea
       >
         Click to Toggle
       </button>
+    </div>
+    <div>
+      <h2>Trigger an Event</h2>
+      <div class="flex flex-col w-full justify-center items-center">
+        <div class="bg-purple-600 w-40 h-40 text-red-500"></div>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+          class="trigger-an-event__textarea"
+        ></textarea>
+        <form action="" class="trigger-an-event__form">
+          <input type="text" name="" id="" class="trigger-an-event__input" />
+        </form>
+      </div>
     </div>
   </body>
 </html>
