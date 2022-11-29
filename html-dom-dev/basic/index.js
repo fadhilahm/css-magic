@@ -130,3 +130,8 @@ selectTextElement.addEventListener("click", () => {
   );
   selectText(wantToBeSelected);
 });
+
+// Show or hide an element
+const elementToHide = document.querySelector(".show-or-hide-an-element");
+elementToHide.style.display = "none";
+elementToHide.style.display = "";
