@@ -225,3 +225,19 @@ toggledElement.addEventListener("hello-happy-world", (e) => {
 //   console.log("DISPATCH CUSTOM EVENT");
 //   toggledElement.dispatchEvent(customEvent);
 // }, 200);
+
+// Swap two nodes
+const swap = (nodeA, nodeB) => {
+  const parentA = nodeA.parentNode;
+  const siblingA = nodeA.nextSibling === nodeB ? nodeA : nodeA.nextSibling;
+
+  // Move `nodeA` to before the `nodeB`
+  nodeB.parentNode.insertBefore(nodeA, nodeB);
+
+  // Move `nodeB` to before the sibling of `nodeA`
+  parentA.insertBefore(nodeB, siblingA);
+};
+
+const firstElement = document.querySelector(".swap-two-nodes__1st");
+const secondElement = document.querySelector(".swap-two-nodes__2nd");
+swap(firstElement, secondElement);
