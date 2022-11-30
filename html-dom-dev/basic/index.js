@@ -293,3 +293,17 @@ const uploadTrigger = () => {
     const data = JSON.parse(response);
   });
 };
+
+// Wrap an element around a given element
+const wrapper = document.querySelector(
+  ".wrap-an-element-around-a-given-element__wrapper"
+);
+const wrappee = document.querySelector(
+  ".wrap-an-element-around-a-given-element__wrappee"
+);
+
+// First, insert `wrapper` before `wrappee` in its parent node
+wrappee.parentNode.insertBefore(wrapper, wrappee);
+
+// And then, turn `ele` into a children of `wrapper`
+wrapper.appendChild(wrappee);
