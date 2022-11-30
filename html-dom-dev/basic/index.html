@@ -176,5 +176,19 @@ Hello there!</textarea
         </div>
       </div>
     </div>
+    <div>
+      <h2>Upload Files with Ajax</h2>
+      <div class="flex justify-center">
+        <input type="file" multiple class="upload-files-with-ajax" />
+        <button
+          class="rounded shadow-md bg-blue-500 text-white px-4"
+          onclick="(() => {
+            uploadTrigger()
+        })()"
+        >
+          Upload File(s)
+        </button>
+      </div>
+    </div>
   </body>
 </html>

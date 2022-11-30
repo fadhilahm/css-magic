@@ -253,3 +253,43 @@ while (toBeUnwrapped.firstChild) {
 
 // `ele` becomes an empty element, remove it from the parent
 toBeUnwrappedParent.removeChild(toBeUnwrapped);
+
+// Upload files with Ajax
+const upload = (fileEle, backendURL) => {
+  return new Promise((resolve, reject) => {
+    // Get the list of selected files
+    const files = fileEle.files;
+
+    // Create a new FormData
+    const formData = new FormData();
+
+    // Loop over the files
+    [].forEach.call(files, (file) => {
+      formData.append(fileEle.name, file, file.name);
+    });
+
+    // Create a new Ajax request
+    const req = new XMLHttpRequest();
+    req.open("POST", backendURL, true);
+
+    // Handle the events
+    req.onload = () => {
+      if (req.status >= 200 && req.status < 400) {
+        resolve(req.responseText);
+      }
+    };
+    req.onerror = () => {
+      reject();
+    };
+
+    // Send it
+    req.send(formData);
+  });
+};
+
+const uploadTrigger = () => {
+  const uploadFiles = document.querySelector(".upload-files-with-ajax");
+  upload(uploadFiles, "/path/to/back-end").then((response) => {
+    const data = JSON.parse(response);
+  });
+};
