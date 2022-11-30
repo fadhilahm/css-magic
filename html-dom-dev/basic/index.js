@@ -241,3 +241,15 @@ const swap = (nodeA, nodeB) => {
 const firstElement = document.querySelector(".swap-two-nodes__1st");
 const secondElement = document.querySelector(".swap-two-nodes__2nd");
 swap(firstElement, secondElement);
+
+// Unwrap an element
+const toBeUnwrapped = document.querySelector(".unwrap-an-element");
+
+// Get the parents node
+const toBeUnwrappedParent = toBeUnwrapped.parentNode;
+while (toBeUnwrapped.firstChild) {
+  toBeUnwrappedParent.insertBefore(toBeUnwrapped.firstChild, toBeUnwrapped);
+}
+
+// `ele` becomes an empty element, remove it from the parent
+toBeUnwrappedParent.removeChild(toBeUnwrapped);
