@@ -307,3 +307,18 @@ wrappee.parentNode.insertBefore(wrapper, wrappee);
 
 // And then, turn `ele` into a children of `wrapper`
 wrapper.appendChild(wrappee);
+
+// Toggle password visibility
+const togglePasswordBtn = document.querySelector(
+  ".toggle-password-visibility__button"
+);
+togglePasswordBtn.addEventListener("click", () => {
+  const togglePasswordElement = document.querySelector(
+    ".toggle-password-visibility__password"
+  );
+  const type = togglePasswordElement.getAttribute("type");
+  togglePasswordElement.setAttribute(
+    "type",
+    type === "password" ? "text" : "password"
+  );
+});
