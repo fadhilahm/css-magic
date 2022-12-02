@@ -360,3 +360,16 @@ const createColoredBox = () => {
   element.classList.add("w-10", "h-10");
   return element;
 };
+
+const buttonWithoutEvent = document.querySelector(
+  ".append-to-an-element__button"
+);
+const addRandomBoxes = () => {
+  const element = createColoredBox();
+  const parent = document.querySelector(".append-to-an-element");
+  parent.appendChild(element);
+};
+
+buttonWithoutEvent.addEventListener("click", addRandomBoxes);
+
+// buttonWithoutEvent.removeEventListener("click", addRandomBoxes);
