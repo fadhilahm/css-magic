@@ -322,3 +322,25 @@ togglePasswordBtn.addEventListener("click", () => {
     type === "password" ? "text" : "password"
   );
 });
+
+// Add or remove class from an element
+const modifiedElement = document.querySelector(
+  ".add-or-remove-class-from-an-element"
+);
+
+// Add a class to an element
+modifiedElement.classList.add("text-yellow-500");
+
+// Remove a class from an element
+// modifiedElement.classList.remove("bg-red-500");
+
+// Toggle a class from an element.
+const toggleClass = (element, className) => {
+  element.classList.toggle(className);
+};
+const toggledElement2 = document.querySelector(
+  ".add-or-remove-class-from-an-element__button"
+);
+toggledElement2.addEventListener("click", () => {
+  toggleClass(modifiedElement, "bg-blue-500");
+});
