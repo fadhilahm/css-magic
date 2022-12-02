@@ -344,3 +344,19 @@ const toggledElement2 = document.querySelector(
 toggledElement2.addEventListener("click", () => {
   toggleClass(modifiedElement, "bg-blue-500");
 });
+
+// Append to an element
+const createColoredBox = () => {
+  const element = document.createElement("div");
+  const colorsList = [
+    "bg-red-500",
+    "bg-green-400",
+    "bg-orange-500",
+    "bg-blue-500",
+    "bg-pink-500",
+  ];
+  const randomNumber = Math.ceil(Math.random() * (colorsList.length - 1));
+  element.classList.add(colorsList[randomNumber]);
+  element.classList.add("w-10", "h-10");
+  return element;
+};
