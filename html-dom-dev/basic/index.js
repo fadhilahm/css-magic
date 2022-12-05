@@ -373,3 +373,28 @@ const addRandomBoxes = () => {
 buttonWithoutEvent.addEventListener("click", addRandomBoxes);
 
 // buttonWithoutEvent.removeEventListener("click", addRandomBoxes);
+
+// Calculate the mouse position relative to an element
+const mouseRelative = document.querySelector(
+  ".calculate-the-mouse-position-relative-to-an-element__reference"
+);
+mouseRelative.addEventListener("mousedown", (e) => {
+  // Get the target
+  const target = e.target;
+
+  // Get the bounding rectangle of target
+  const rect = target.getBoundingClientRect();
+
+  // Mouse position
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  const xElement = document.querySelector(
+    ".calculate-the-mouse-position-relative-to-an-element__x"
+  );
+  const yElement = document.querySelector(
+    ".calculate-the-mouse-position-relative-to-an-element__y"
+  );
+  xElement.innerHTML = x;
+  yElement.innerHTML = y;
+});
