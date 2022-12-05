@@ -398,3 +398,15 @@ mouseRelative.addEventListener("mousedown", (e) => {
   xElement.innerHTML = x;
   yElement.innerHTML = y;
 });
+
+// Check an element against a selector
+const matches = (ele, selector) => {
+  return (
+    ele.matches ||
+    ele.mathesSelector ||
+    ele.msMatchesSelector ||
+    ele.mozMatchesSelector ||
+    ele.webkitMathesSelector ||
+    ele.oMatchesSelector
+  ).call(ele, selector);
+};
