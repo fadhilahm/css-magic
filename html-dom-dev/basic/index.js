@@ -410,3 +410,24 @@ const matches = (ele, selector) => {
     ele.oMatchesSelector
   ).call(ele, selector);
 };
+
+// Check if an element is in the viewport
+const isInViewport = (ele) => {
+  const rect = ele.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerHeight || document.documentElement.clientWidth)
+  );
+};
+
+// setInterval(() => {
+//   console.log(
+//     "is in viewport ===> ",
+//     isInViewport(
+//       document.querySelector(".check-if-an-element-is-in-the-viewport")
+//     )
+//   );
+// }, 500);
