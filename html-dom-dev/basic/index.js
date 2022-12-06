@@ -454,3 +454,17 @@ const childComponent = document.querySelector(
 const parentComponent = document.querySelector(
   ".check-if-an-element-is-a-descendant-of-another__parent"
 );
+
+// Check if the native date input is supported
+const isDateInputSupported = () => {
+  // Create a new input element
+  const ele = document.createElement("input");
+
+  // Set the type attribute
+  ele.setAttribute("type", "date");
+  const invalidValue = "not-a-value-date";
+
+  return ele.value !== invalidValue;
+};
+
+console.log(isDateInputSupported());
