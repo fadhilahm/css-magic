@@ -431,3 +431,26 @@ const isInViewport = (ele) => {
 //     )
 //   );
 // }, 500);
+
+// Check if an element is a descendant of another
+const isDescendant = (parent, child) => {
+  let node = child.parentNode;
+  while (node) {
+    if (node === parent) {
+      return true;
+    }
+
+    // traverse up to the parent
+    node = node.parentNode;
+  }
+
+  // Go up until the root but couldn't find the `parent`
+  return false;
+};
+
+const childComponent = document.querySelector(
+  ".check-if-an-element-is-a-descendant-of-another__descendant"
+);
+const parentComponent = document.querySelector(
+  ".check-if-an-element-is-a-descendant-of-another__parent"
+);
