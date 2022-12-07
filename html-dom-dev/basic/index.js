@@ -468,3 +468,9 @@ const isDateInputSupported = () => {
 };
 
 console.log(isDateInputSupported());
+
+// Check if the touch events are supported
+const touchSupported = !!(
+  "ontouchstart" in window ||
+  (window.DocumentTouch && document instanceof DocumentTouch)
+);a
