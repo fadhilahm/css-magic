@@ -477,3 +477,42 @@ const touchSupported = !!(
 
 // Check if the code is running in the browser
 const isBrowser = typeof window === "object" && typeof document === "object";
+
+// Check if an element is visible in a scrollable container
+const isVisibleFirst = (ele, container) => {
+  const eleTop = ele.offsetTop;
+  const eleBottom = eleTop + ele.clientHeight;
+
+  const containerTop = container.scrollTop;
+  const containerBottom = containerTop + container.clientHeight;
+
+  // The element is fully visible in the container
+  return (
+    (eleTop >= containerTop && eleBottom <= containerBottom) ||
+    // Some part of the element is visible in the container.
+    (eleTop < containerTop && containerTop < eleBottom) ||
+    (eleTop < containerBottom && containerBottom < eleBottom)
+  );
+};
+
+const isVisibleSecond = (ele, container) => {
+  const { bottom, height, top } = ele.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
+
+  return top <= containerRect.top
+    ? containerRect.top - top <= height
+    : bottom - containerRect.bottom <= height;
+};
+
+const isVisibleContainer = document.querySelector(
+  ".check-if-an-element-is-visible-in-a-scrollable-container__container"
+);
+
+const isVisibleChild = document.querySelector(
+  ".check-if-an-element-is-visible-in-a-scrollable-container__child"
+);
+
+isVisibleContainer.addEventListener("click", () => {
+  const isVisible = isVisibleSecond(isVisibleChild, isVisibleContainer);
+  console.log("isVisible 👀 ", isVisible);
+});
