@@ -473,4 +473,7 @@ console.log(isDateInputSupported());
 const touchSupported = !!(
   "ontouchstart" in window ||
   (window.DocumentTouch && document instanceof DocumentTouch)
-);a
+);
+
+// Check if the code is running in the browser
+const isBrowser = typeof window === "object" && typeof document === "object";
