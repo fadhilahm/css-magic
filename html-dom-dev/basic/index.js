@@ -537,3 +537,36 @@ countNumberTextArea.addEventListener("input", (e) => {
   const counter = `${currentTextLength} / ${currentMaxLength}`;
   countNumberCounter.innerHTML = counter;
 });
+
+const copyButton = document.querySelector(
+  ".copy-highlighted-code-to-the-clipboard__button"
+);
+copyButton.addEventListener("click", () => {
+  const codeBlock = document.querySelector(
+    ".copy-highlighted-code-to-the-clipboard__code"
+  );
+  const selection = window.getSelection();
+
+  // Save the current selection
+  const currentRange =
+    selection.rangeCount === 0 ? null : selection.getRangeAt(0);
+
+  // Select the text content of code element
+  const range = document.createRange();
+  range.selectNodeContents(codeBlock);
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  // Copy to clipboard
+  try {
+    document.execCommand("copy");
+    copyButton.innerHTML = "Copied";
+  } catch (err) {
+    // Unable to copy
+    copyButton.innerHTML = "Copy";
+  } finally {
+    // Restore the previous selection
+    selection.removeAllRanges();
+    currentRange && selection.addRange(currentRange);
+  }
+});

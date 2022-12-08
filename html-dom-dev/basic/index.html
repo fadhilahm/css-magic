@@ -299,5 +299,27 @@ Hello there!</textarea
         ></div>
       </div>
     </div>
+    <div class="flex flex-col">
+      <h2>Copy highlighted code to the clipboard</h2>
+      <div class="flex flex-col items-center">
+        <pre>
+          <code class="copy-highlighted-code-to-the-clipboard__code">
+function deleteConfirm() {
+  var result = confirm("Are you sure to delete this customer ?");
+  if (result) {
+    return true;
+  } else {
+    return false;
+  }
+}
+</code>
+        </pre>
+        <button
+          class="content copy-highlighted-code-to-the-clipboard__button bg-slate-400 w-fit px-4 rounded-lg shadow-lg"
+        >
+          COPY
+        </button>
+      </div>
+    </div>
   </body>
 </html>
