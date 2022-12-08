@@ -516,3 +516,10 @@ isVisibleContainer.addEventListener("click", () => {
   const isVisible = isVisibleSecond(isVisibleChild, isVisibleContainer);
   console.log("isVisible 👀 ", isVisible);
 });
+
+// Check if an element has given class
+const isClassExist = document
+  .querySelector(
+    ".check-if-an-element-is-visible-in-a-scrollable-container__container"
+  )
+  .classList.contains("justify-center");
