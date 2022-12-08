@@ -523,3 +523,17 @@ const isClassExist = document
     ".check-if-an-element-is-visible-in-a-scrollable-container__container"
   )
   .classList.contains("justify-center");
+
+// Count the number of characters of a textarea
+const countNumberTextArea = document.querySelector(
+  ".count-the-number-of-characters-of-a-textarea__textarea"
+);
+const countNumberCounter = document.querySelector(
+  ".count-the-number-of-characters-of-a-textarea__counter"
+);
+countNumberTextArea.addEventListener("input", (e) => {
+  const currentTextLength = e.target.value.length;
+  const currentMaxLength = countNumberTextArea.getAttribute("maxlength");
+  const counter = `${currentTextLength} / ${currentMaxLength}`;
+  countNumberCounter.innerHTML = counter;
+});
