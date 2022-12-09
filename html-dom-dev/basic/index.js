@@ -573,7 +573,22 @@ copyButton.addEventListener("click", () => {
 
 // Create an element
 const newElement = document.createElement("div");
-newElement.classList.add("w-content", "h-20", "bg-red-500", "text-white", "px-3", "flex", "items-center");
+newElement.classList.add(
+  "w-content",
+  "h-20",
+  "bg-red-500",
+  "text-white",
+  "px-3",
+  "flex",
+  "items-center"
+);
 newElement.innerHTML = "ハローハッピーワールド！！！！";
 const newElementContainer = document.querySelector(".create-an-element");
 newElementContainer.appendChild(newElement);
+
+// Clone an element
+const clonedElementContainer = document.querySelector(".clone-an-element");
+for (let i = 0; i < 5; i++) {
+  const cloned = newElement.cloneNode(true);
+  clonedElementContainer.appendChild(cloned);
+}
