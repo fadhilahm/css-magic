@@ -570,3 +570,10 @@ copyButton.addEventListener("click", () => {
     currentRange && selection.addRange(currentRange);
   }
 });
+
+// Create an element
+const newElement = document.createElement("div");
+newElement.classList.add("w-content", "h-20", "bg-red-500", "text-white", "px-3", "flex", "items-center");
+newElement.innerHTML = "ハローハッピーワールド！！！！";
+const newElementContainer = document.querySelector(".create-an-element");
+newElementContainer.appendChild(newElement);
