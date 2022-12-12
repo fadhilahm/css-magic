@@ -605,3 +605,19 @@ document.addEventListener("click", (e) => {
   );
   outsideClickText.innerHTML = filledText;
 });
+
+// Detect if an element is focused
+const focusListener = document.querySelector(
+  ".detect-if-an-element-is-focused"
+);
+
+const focusListenerHandler = () => {
+  focusListener.setAttribute(
+    "value",
+    document.activeElement === focusListener ? "FOCUSED!😎" : "NOT FOCUSED 😢"
+  );
+};
+
+focusListener.addEventListener("focus", focusListenerHandler);
+
+focusListener.addEventListener("blur", focusListenerHandler);
