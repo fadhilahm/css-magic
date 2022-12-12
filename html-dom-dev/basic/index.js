@@ -592,3 +592,16 @@ for (let i = 0; i < 5; i++) {
   const cloned = newElement.cloneNode(true);
   clonedElementContainer.appendChild(cloned);
 }
+
+// Detect clicks outside of an element
+const outsideClick = document.querySelector(
+  ".detect-clicks-outside-of-an-element"
+);
+document.addEventListener("click", (e) => {
+  const isClickedOutside = !outsideClick.contains(e.target);
+  const filledText = isClickedOutside ? "❌" : "✅";
+  const outsideClickText = document.querySelector(
+    ".detect-clicks-outside-of-an-element__text"
+  );
+  outsideClickText.innerHTML = filledText;
+});
