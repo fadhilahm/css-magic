@@ -634,3 +634,16 @@ onceButton.addEventListener("click", onceButtonHandler, { once: true });
 
 // 2. Self-remove the handler
 // onceButton.addEventListener("click", onceButtonHandler);
+
+// Detect mobile browsers
+
+// 1. Check userAgent (not recommended)
+const isMobile1 = /Android|BlackBerry|iPad|iPod|iPhone|webOS/i.test(
+  navigator.userAgent
+);
+
+// 2. Use feature detection
+const isMobile2 = () => {
+  const match = window.matchMedia("(pointer:coarse)");
+  return match && match.matches;
+};
