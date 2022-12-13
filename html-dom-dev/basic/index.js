@@ -647,3 +647,13 @@ const isMobile2 = () => {
   const match = window.matchMedia("(pointer:coarse)");
   return match && match.matches;
 };
+
+// Detect internet explorer browser
+const isIE1 = () => {
+  const ua = window.navigator.userAgent;
+  return ua.indexOf("MSIE") > -1 || ua.indexOf("Trident") > -1;
+};
+
+const isIE2 = () => {
+  return !!document.documentMode;
+};
