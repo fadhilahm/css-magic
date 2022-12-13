@@ -657,3 +657,11 @@ const isIE1 = () => {
 const isIE2 = () => {
   return !!document.documentMode;
 };
+
+// Detect the dark mode
+const isDarkMode = () => {
+  return (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+};
