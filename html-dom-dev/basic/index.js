@@ -621,3 +621,16 @@ const focusListenerHandler = () => {
 focusListener.addEventListener("focus", focusListenerHandler);
 
 focusListener.addEventListener("blur", focusListenerHandler);
+
+// Create a one time event handler
+
+const onceButton = document.querySelector(".create-one-time-event-handler");
+const onceButtonHandler = () => {
+  prompt("This should only be able to run once");
+  // onceButton.removeEventListener("click", onceButtonHandler);
+};
+// 1. Use the once option
+onceButton.addEventListener("click", onceButtonHandler, { once: true });
+
+// 2. Self-remove the handler
+// onceButton.addEventListener("click", onceButtonHandler);
