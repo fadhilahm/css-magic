@@ -670,3 +670,26 @@ const isDarkMode = () => {
 const isMacBrowser = () => {
   return /Mac|iPod|iPhone|iPad/.test(navigator.platform);
 };
+
+// Distinguish between left and right mouse clicks
+const distinguishLeftRightButton = document.querySelector(
+  ".distinguish-between-left-and-right-mouse-clicks__button"
+);
+distinguishLeftRightButton.addEventListener("mousedown", (e) => {
+  let text = "";
+  switch (e.button) {
+    case 0:
+      text = "👈";
+      break;
+    case 1:
+      text = "🖕";
+      break;
+    case 2:
+      text = "👉";
+      break;
+  }
+  const distinguishLeftRightText = document.querySelector(
+    ".distinguish-between-left-and-right-mouse-clicks__text"
+  );
+  distinguishLeftRightText.innerHTML = text;
+});
