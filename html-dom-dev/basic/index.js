@@ -693,3 +693,67 @@ distinguishLeftRightButton.addEventListener("mousedown", (e) => {
   );
   distinguishLeftRightText.innerHTML = text;
 });
+
+// Determine the height and width of an element
+const determineHeight = document.querySelector(
+  ".determine-the-height-and-width-of-an-element"
+);
+
+determineHeight.addEventListener("click", () => {
+  // Get the styles
+  const styles = window.getComputedStyle(determineHeight);
+
+  // The size without padding or border
+  const height =
+    determineHeight.clientHeight -
+    parseFloat(styles.paddingTop) -
+    parseFloat(styles.paddingBottom);
+  const width =
+    determineHeight.clientWidth -
+    parseFloat(styles.paddingLeft) -
+    parseFloat(styles.paddingRight);
+
+  // The size include padding
+  const clientheight = determineHeight.clientHeight;
+  const clientWidth = determineHeight.clientWidth;
+
+  // The size including padding and border
+  const offsetHeight = determineHeight.offsetHeight;
+  const offsetWidth = determineHeight.offsetWidth;
+
+  // The size including padding, border, and margin
+  const heightWithMargin =
+    determineHeight.offsetHeight +
+    parseFloat(styles.marginTop) +
+    parseFloat(styles.marginBottom);
+  const widthWithMargin =
+    determineHeight.offsetWidth +
+    parseFloat(styles.marginLeft) +
+    parseFloat(styles.marginRight);
+
+  // Transfer the value to the html document
+  document.querySelector(
+    ".determine-the-height-and-width-of-an-element__height"
+  ).innerHTML = height;
+  document.querySelector(
+    ".determine-the-height-and-width-of-an-element__width"
+  ).innerHTML = width;
+  document.querySelector(
+    ".determine-the-height-and-width-of-an-element__client-height"
+  ).innerHTML = clientheight;
+  document.querySelector(
+    ".determine-the-height-and-width-of-an-element__client-width"
+  ).innerHTML = clientWidth;
+  document.querySelector(
+    ".determine-the-height-and-width-of-an-element__offset-height"
+  ).innerHTML = offsetHeight;
+  document.querySelector(
+    ".determine-the-height-and-width-of-an-element__offset-width"
+  ).innerHTML = offsetWidth;
+  document.querySelector(
+    ".determine-the-height-and-width-of-an-element__height-with-margin"
+  ).innerHTML = heightWithMargin;
+  document.querySelector(
+    ".determine-the-height-and-width-of-an-element__width-with-margin"
+  ).innerHTML = widthWithMargin;
+});
