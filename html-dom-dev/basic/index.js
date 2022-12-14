@@ -665,3 +665,8 @@ const isDarkMode = () => {
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 };
+
+// Detect mac OS browser
+const isMacBrowser = () => {
+  return /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+};
