@@ -770,3 +770,24 @@ const ready = (cb) => {
 ready(() => {
   console.log("Document is ready!!!");
 });
+
+// Get CSS styles of an element
+const getCSSStylesOfAnElement = () => {
+  const ele = document.querySelector(".get-css-styles-of-an-element");
+  const styles = window.getComputedStyle(ele, null);
+
+  // Get the background color
+  const bgColor = styles.backgroundColor;
+  document.querySelector(".get-css-styles-of-an-element__bg").innerHTML =
+    bgColor;
+
+  const textSizeAdjust = styles["-webkit-text-size-adjust"];
+  document.querySelector(
+    ".get-css-styles-of-an-element__text-adjust"
+  ).innerHTML = textSizeAdjust;
+
+  const textColor = styles.getPropertyValue("color");
+  document.querySelector(".get-css-styles-of-an-element__color").innerHTML =
+    textColor;
+};
+getCSSStylesOfAnElement();
