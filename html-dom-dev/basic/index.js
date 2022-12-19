@@ -757,3 +757,16 @@ determineHeight.addEventListener("click", () => {
     ".determine-the-height-and-width-of-an-element__width-with-margin"
   ).innerHTML = widthWithMargin;
 });
+
+const ready = (cb) => {
+  // Check if the `document` is loaded completely
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", (e) => {
+        cb();
+      })
+    : cb();
+};
+
+ready(() => {
+  console.log("Document is ready!!!");
+});
