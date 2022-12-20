@@ -794,3 +794,46 @@ getCSSStylesOfAnElement();
 
 // Get or set the document title
 document.title = "🤔ハローハッピーワールド🤔";
+
+// Get siblings of an element
+const siblingsOfAnElement = () => {
+  const middle = document.querySelector(".get-siblings-of-an-element__middle");
+
+  // Get the previous sibling
+  const prev = middle.previousSibling;
+  console.log("Get the previous sibling => ", prev.innerHTML);
+
+  // Get the next sibling
+  const next = middle.nextSibling;
+  console.log("Get the next sibling => ", next);
+
+  // Get all siblings
+  const parent = middle.parentNode;
+
+  // Filter the children , exclude the element
+  const siblings = [].slice.call(parent.children).filter((child) => {
+    return child !== middle;
+  });
+  console.log(
+    "Get all siblings => ",
+    siblings.map((sibling) => sibling.innerHTML.trim())
+  );
+};
+siblingsOfAnElement();
+
+// Get, set and remove attributes
+const getSetAndRemove = () => {
+  const ele = document.querySelector(".get-set-and-remove-attributes");
+
+  // GET
+  const width = ele.getAttribute("width");
+  console.log("width => ", width);
+
+  // SET
+  const newSrc = "https://pbs.twimg.com/media/E3kqMX5VkAM9L5c.jpg:large";
+  ele.setAttribute("src", newSrc);
+
+  // REMOVE
+  // ele.removeAttribute("height");
+};
+getSetAndRemove();
