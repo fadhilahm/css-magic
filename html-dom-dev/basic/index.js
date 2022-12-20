@@ -791,3 +791,6 @@ const getCSSStylesOfAnElement = () => {
     textColor;
 };
 getCSSStylesOfAnElement();
+
+// Get or set the document title
+document.title = "🤔ハローハッピーワールド🤔";
