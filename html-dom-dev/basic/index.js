@@ -858,3 +858,41 @@ const getSetDataAttributes = () => {
   console.log("data-test END => ", messageDeleted);
 };
 getSetDataAttributes();
+
+// Get the closest element by given selector
+const closestElement = () => {
+  // 1. Use the native closest() method
+  const son = document.querySelector(
+    ".get-the-closest-element-by-given-selector__son"
+  );
+  const result = son.closest("div");
+  console.log("result => ", result);
+
+  // 2. Traverse up until finding the matching element
+  const matches = (ele, selector) => {
+    return (
+      ele.matches ||
+      ele.matchesSelector ||
+      ele.msMatchesSelector ||
+      ele.mozMatchesSelector ||
+      ele.webkitMatchesSelector ||
+      ele.oMatchesSelector
+    ).call(ele, selector);
+  };
+
+  // Find the closest element to `ele` and matches the `selector`
+  const closest = (ele, selector) => {
+    let e = ele;
+    while (e) {
+      if (matches(e, selector)) {
+        break;
+      }
+      e = e.parentNode;
+    }
+    return e;
+  };
+
+  const result2 = closest(son, "div.w-32");
+  console.log("result2 => ", result2);
+};
+closestElement();
