@@ -837,3 +837,24 @@ const getSetAndRemove = () => {
   // ele.removeAttribute("height");
 };
 getSetAndRemove();
+
+// Get, set and remove data attributes
+const getSetDataAttributes = () => {
+  const ele = document.querySelector(".get-set-and-remove-data-attributes");
+
+  // Get the data attribute
+  const messageBefore = ele.getAttribute("data-test");
+  console.log("data-test before => ", messageBefore);
+
+  // Set the data attribute's valu
+  ele.setAttribute("data-test", "heyo THE END");
+  const messageAfter = ele.getAttribute("data-test");
+  console.log("date-test after => ", messageAfter);
+
+  // Remove the data attribute
+  ele.removeAttribute("data-test");
+  delete ele.dataset["data-test"];
+  const messageDeleted = ele.getAttribute("data-test");
+  console.log("data-test END => ", messageDeleted);
+};
+getSetDataAttributes();
