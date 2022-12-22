@@ -896,3 +896,16 @@ const closestElement = () => {
   console.log("result2 => ", result2);
 };
 closestElement();
+
+// Get or set the HTML of an element
+const getSetHTML = () => {
+  const outerHtml = document.querySelector('.get-or-set-the-html-of-an-element__outer');
+
+  // Get the HTML
+  const innerHtml = outerHtml.innerHTML;
+  
+  // Set the HTML
+  const innerMostHTML = document.querySelector('.get-or-set-the-html-of-an-element__inner')
+  innerMostHTML.innerHTML = '<span class="text-white">ハローハッピーワールド！！！</span>'
+}
+getSetHTML();
