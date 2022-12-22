@@ -899,13 +899,50 @@ closestElement();
 
 // Get or set the HTML of an element
 const getSetHTML = () => {
-  const outerHtml = document.querySelector('.get-or-set-the-html-of-an-element__outer');
+  const outerHtml = document.querySelector(
+    ".get-or-set-the-html-of-an-element__outer"
+  );
 
   // Get the HTML
   const innerHtml = outerHtml.innerHTML;
-  
+
   // Set the HTML
-  const innerMostHTML = document.querySelector('.get-or-set-the-html-of-an-element__inner')
-  innerMostHTML.innerHTML = '<span class="text-white">ハローハッピーワールド！！！</span>'
-}
+  const innerMostHTML = document.querySelector(
+    ".get-or-set-the-html-of-an-element__inner"
+  );
+  innerMostHTML.innerHTML =
+    '<span class="text-white">ハローハッピーワールド！！！</span>';
+};
 getSetHTML();
+
+// Get the size of the selected file
+const getTheSizeFile = () => {
+  const fileEle = document.querySelector(
+    ".get-size-of-the-selected-file__input"
+  );
+  const sizeEle = document.querySelector(
+    ".get-size-of-the-selected-file__size"
+  );
+
+  fileEle.addEventListener("change", (e) => {
+    const formatFileSize = (bytes) => {
+      const suffixes = ["B", "kB", "MB", "GB", "TB"];
+      const i = Math.floor(Math.log(bytes) / Math.log(1024));
+      return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${suffixes[i]}`;
+    };
+
+    const files = e.target.files;
+    if (files.length === 0) {
+      // Hide the size element if user doesn't choose any file.
+      sizeEle.innerHTML = "";
+      sizeEle.style.display = "none";
+    } else {
+      // File size in bytes.
+      sizeEle.innerHTML = formatFileSize(files[0].size);
+
+      // Display it.
+      sizeEle.style.display = "block";
+    }
+  });
+};
+getTheSizeFile();
