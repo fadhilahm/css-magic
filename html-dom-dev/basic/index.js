@@ -946,3 +946,27 @@ const getTheSizeFile = () => {
   });
 };
 getTheSizeFile();
+
+const getPositionRelative = () => {
+  const ele = document.querySelector(
+    ".get-the-position-of-an-element-relative-to-the-document__ele"
+  );
+
+  // Get the top, left coordinates of the element
+  const rect = ele.getBoundingClientRect();
+
+  // Add the scroll position to get the full distance from the element to the top, left sides of the document.
+  const top = rect.top + document.body.scrollTop;
+  const left = rect.left + document.body.scrollLeft;
+
+  // Project the value on the screen.
+  document.querySelector(
+    ".get-the-position-of-an-element-relative-to-the-document__left"
+  ).innerHTML = left;
+  document.querySelector(
+    ".get-the-position-of-an-element-relative-to-the-document__top"
+  ).innerHTML = top;
+};
+getPositionRelative();
+
+document.addEventListener("mousewheel", getPositionRelative);
