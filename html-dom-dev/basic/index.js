@@ -1008,3 +1008,29 @@ const getTextContentElement = () => {
   console.log("textContent => ", textContent);
 };
 getTextContentElement();
+
+// Get the position of an element relative to another.
+const getPositionRelativeToAnother = () => {
+  const reference = document.querySelector(
+    ".get-the-position-of-an-element-relative-to-another__container"
+  );
+  const target = document.querySelector(".scroll-to-an-element");
+
+  // Get the top, left coordinates of two elements.
+  const referenceRect = reference.getBoundingClientRect();
+  const targetRect = target.getBoundingClientRect();
+
+  // Calculate the top and left positions.
+  const top = `${Math.abs(targetRect.top - referenceRect.top).toFixed(2)}px`;
+  const left = `${Math.abs(targetRect.left - referenceRect.left).toFixed(2)}px`;
+
+  // Input the value.
+  document.querySelector(
+    ".get-the-position-of-an-element-relative-to-another__text-top"
+  ).innerHTML = top;
+  document.querySelector(
+    ".get-the-position-of-an-element-relative-to-another__text-left"
+  ).innerHTML = left;
+};
+
+document.addEventListener("mousewheel", getPositionRelativeToAnother);

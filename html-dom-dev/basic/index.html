@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="style.css" />
     <title>Manage HTML DOM with vanilla JavaScript</title>
   </head>
-  <body class="flex justify-center align-middle p-5 flex-col">
+  <body class="flex justify-center align-middle p-5 flex-col relative">
     <div>
       <div>Select the children of an element</div>
       <div class="select-the-children-of-an-element">
@@ -528,14 +528,38 @@ function deleteConfirm() {
       <div
         class="flex flex-col items-center justify-center bg-black text-white p-3 gap-y-2 w-fit"
       >
-        <div><span>DOCUMENT HEIGHT => </span><span class="get-the-document-height-and-width__height"></span></div>
-        <div><span>DOCUMENT WIDTH => </span><span class="get-the-document-height-and-width__width"></span></div>
+        <div>
+          <span>DOCUMENT HEIGHT => </span
+          ><span class="get-the-document-height-and-width__height"></span>
+        </div>
+        <div>
+          <span>DOCUMENT WIDTH => </span
+          ><span class="get-the-document-height-and-width__width"></span>
+        </div>
       </div>
     </div>
     <div class="flex flex-col my-3 py-3">
       <h2>Get the text content of an element</h2>
-      <div class="get-the-text-content-of-an-element flex bg-green-400 w-32 h-32 items-center justify-center">
+      <div
+        class="get-the-text-content-of-an-element flex bg-green-400 w-32 h-32 items-center justify-center"
+      >
         GET THE TEXT CONTENT OF AN ELEMENT
+      </div>
+    </div>
+    <div
+      class="get-the-position-of-an-element-relative-to-another__container flex flex-col my-3 py-3 bottom-0 right-0 fixed bg-blue-400 rounded-lg shadow-lg px-3"
+    >
+      <div>
+        <span>TOP | LEFT</span>
+      </div>
+      <div>
+        <span
+          class="get-the-position-of-an-element-relative-to-another__text-top text-red-900"
+        ></span>
+        <span>|</span>
+        <span
+          class="get-the-position-of-an-element-relative-to-another__text-left text-gray-700"
+        ></span>
       </div>
     </div>
   </body>
