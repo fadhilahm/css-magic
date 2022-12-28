@@ -1003,8 +1003,8 @@ getDocumentHeightNWidth();
 
 // Get the text content of an element.
 const getTextContentElement = () => {
-  const ele = document.querySelector('.get-the-text-content-of-an-element');
+  const ele = document.querySelector(".get-the-text-content-of-an-element");
   const textContent = ele.textContent;
   console.log("textContent => ", textContent);
-}
+};
 getTextContentElement();
