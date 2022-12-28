@@ -970,3 +970,41 @@ const getPositionRelative = () => {
 getPositionRelative();
 
 document.addEventListener("mousewheel", getPositionRelative);
+
+// Get the document height and width.
+const getDocumentHeightNWidth = () => {
+  // Full height, including the scroll part
+  const fullHeight = Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.offsetHeight,
+    document.body.clientHeight,
+    document.documentElement.clientHeight
+  );
+
+  const fullWidth = Math.max(
+    document.body.scrollWidth,
+    document.documentElement.scrollWidth,
+    document.body.offsetWidth,
+    document.documentElement.offsetWidth,
+    document.body.clientWidth,
+    document.documentElement.clientWidth
+  );
+
+  document.querySelector(
+    ".get-the-document-height-and-width__height"
+  ).innerHTML = fullHeight;
+  document.querySelector(
+    ".get-the-document-height-and-width__width"
+  ).innerHTML = fullWidth;
+};
+getDocumentHeightNWidth();
+
+// Get the text content of an element.
+const getTextContentElement = () => {
+  const ele = document.querySelector('.get-the-text-content-of-an-element');
+  const textContent = ele.textContent;
+  console.log("textContent => ", textContent);
+}
+getTextContentElement();
