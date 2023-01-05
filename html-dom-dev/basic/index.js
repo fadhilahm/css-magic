@@ -1061,3 +1061,9 @@ calculateSize("https://go.dev/blog/gopher/header.jpg").then(
       width;
   }
 );
+
+// Get the selected text.
+document.addEventListener("selectionchange", () => {
+  const selectedText = window.getSelection().toString();
+  document.querySelector(".get-the-selected-text").innerHTML = selectedText;
+});
