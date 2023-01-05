@@ -1034,3 +1034,30 @@ const getPositionRelativeToAnother = () => {
 };
 
 document.addEventListener("mousewheel", getPositionRelativeToAnother);
+
+// Get the size of an image.
+const calculateSize = (url) => {
+  return new Promise((resolve, reject) => {
+    const image = document.createElement("img");
+    image.addEventListener("load", (e) => {
+      resolve({
+        width: e.target.width,
+        height: e.target.height,
+      });
+    });
+
+    image.addEventListener("error", () => {
+      reject();
+    });
+
+    image.src = url;
+  });
+};
+calculateSize("https://go.dev/blog/gopher/header.jpg").then(
+  ({ width, height }) => {
+    document.querySelector(".get-the-size-of-an-image__height").innerHTML =
+      height;
+    document.querySelector(".get-the-size-of-an-image__width").innerHTML =
+      width;
+  }
+);
