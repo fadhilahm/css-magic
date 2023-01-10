@@ -1075,3 +1075,11 @@ const goBackToPrevious = () => {
   history.go(-1);
 };
 // goBackToPrevious();
+
+// Get the parent node of an element.
+const getTheParentNode = () => {
+  const ele = document.querySelector(".get-the-parent-node-of-an-element");
+  const parent = ele.parentNode;
+  ele.innerHTML = parent.children[0].innerHTML;
+};
+getTheParentNode();
