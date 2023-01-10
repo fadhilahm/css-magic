@@ -1067,3 +1067,11 @@ document.addEventListener("selectionchange", () => {
   const selectedText = window.getSelection().toString();
   document.querySelector(".get-the-selected-text").innerHTML = selectedText;
 });
+
+// Go back to the previous page.
+const goBackToPrevious = () => {
+  history.back();
+
+  history.go(-1);
+};
+// goBackToPrevious();
