@@ -1083,3 +1083,21 @@ const getTheParentNode = () => {
   ele.innerHTML = parent.children[0].innerHTML;
 };
 getTheParentNode();
+
+// Insert an element after or before other element.
+const insertAnElementAfterBefore = () => {
+  const targetElement = document.querySelector(
+    ".insert-an-element-after-or-before-other-element__target"
+  );
+  const ele = document.createElement("div");
+  ele.classList.add("w-20", "bg-blue-500", "h-20");
+
+  // Insert after.
+  // targetElement.parentNode.insertBefore(ele, targetElement.nextSibling);
+  targetElement.insertAdjacentElement("afterend", ele);
+
+  // Insert before.
+  // targetElement.parentNode.insertBefore(ele, targetElement.previousSibling)
+  targetElement.insertAdjacentElement("beforebegin", ele);
+};
+insertAnElementAfterBefore();
