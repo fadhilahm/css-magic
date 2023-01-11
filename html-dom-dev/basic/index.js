@@ -1110,3 +1110,35 @@ const loopOverANodelist = () => {
   });
 };
 // loopOverANodelist();
+
+//  Insert given HTML after or before an element.
+const insertGivenHTMLAfterOrBefore = () => {
+  const ele = document.querySelector(
+    ".insert-given-html-after-or-before-an-element"
+  );
+
+  const afterElement = document.createElement("div");
+  afterElement.classList.add(
+    "h-10",
+    "w-10",
+    "flex",
+    "items-center",
+    "justify-center",
+    "bg-yellow-400"
+  );
+  afterElement.innerHTML = "後";
+  ele.insertAdjacentHTML("afterend", afterElement.outerHTML);
+
+  const beforeElement = document.createElement("div");
+  beforeElement.classList.add(
+    "h-10",
+    "w-10",
+    "flex",
+    "items-center",
+    "justify-center",
+    "bg-red-500"
+  );
+  beforeElement.innerHTML = "前";
+  ele.insertAdjacentHTML("beforebegin", beforeElement.outerHTML);
+};
+insertGivenHTMLAfterOrBefore();
