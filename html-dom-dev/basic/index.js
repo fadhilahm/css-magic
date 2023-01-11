@@ -1142,3 +1142,9 @@ const insertGivenHTMLAfterOrBefore = () => {
   ele.insertAdjacentHTML("beforebegin", beforeElement.outerHTML);
 };
 insertGivenHTMLAfterOrBefore();
+
+// Disable scrolling on the `body` element when opening a modal.
+document.body.style.overflow = "hidden";
+
+// Allow to scroll when closing the modal.
+document.body.style.removeProperty("overflow");
