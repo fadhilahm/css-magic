@@ -1101,3 +1101,12 @@ const insertAnElementAfterBefore = () => {
   targetElement.insertAdjacentElement("beforebegin", ele);
 };
 insertAnElementAfterBefore();
+
+// Loop over a nodelist.
+const loopOverANodelist = () => {
+  const elements = document.querySelectorAll(".loop-over-a-nodelist");
+  [...elements].forEach((ele, i) => {
+    console.log(`index:${i} | content:${ele.innerHTML}`);
+  });
+};
+// loopOverANodelist();
