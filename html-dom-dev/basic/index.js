@@ -1148,3 +1148,22 @@ document.body.style.overflow = "hidden";
 
 // Allow to scroll when closing the modal.
 document.body.style.removeProperty("overflow");
+
+// Prepend to an element
+const prependToAnElement = () => {
+  const ele = document.createElement("div");
+  ele.classList.add(
+    "flex",
+    "items-center",
+    "justify-center",
+    "bg-yellow-500",
+    "h-30",
+    "w-30",
+    "p-3"
+  );
+  ele.innerHTML = "PREPENDED";
+
+  const target = document.querySelector(".prepend-to-an-element");
+  target.insertBefore(ele, target.firstChild);
+};
+prependToAnElement();
