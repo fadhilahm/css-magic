@@ -1031,6 +1031,14 @@ const getPositionRelativeToAnother = () => {
   document.querySelector(
     ".get-the-position-of-an-element-relative-to-another__text-left"
   ).innerHTML = left;
+
+  reference.addEventListener("click", () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
 };
 
 document.addEventListener("mousewheel", getPositionRelativeToAnother);
