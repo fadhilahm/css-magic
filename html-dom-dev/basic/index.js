@@ -1167,3 +1167,21 @@ const prependToAnElement = () => {
   target.insertBefore(ele, target.firstChild);
 };
 prependToAnElement();
+
+// Press Shift and Enter for a new line.
+const pressShiftAndEnterForANewLine = () => {
+  const ele = document.querySelector(".press-shift-and-enter-for-a-new-line");
+  ele.addEventListener("keydown", (e) => {
+    // Get the code of pressed key.
+    const keyCode = e.which || e.keyCode;
+
+    // 13 represents the Enter key.
+    if (keyCode === 13 && !e.shiftKey) {
+      // Don't generate a new line.
+      e.preventDefault();
+
+      // Do something else such as sending the message to back end.
+    }
+  });
+};
+pressShiftAndEnterForANewLine();
