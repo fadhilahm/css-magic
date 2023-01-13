@@ -1193,3 +1193,27 @@ const pressShiftAndEnterForANewLine = () => {
   });
 };
 pressShiftAndEnterForANewLine();
+
+// Prevent the page from scrolling to an element when it is focused.
+const preventThePageFromScrolling = () => {
+  const button = document.querySelector(
+    ".prevent-the-page-from-scrolling-to-an-element-when-it-is-focused__button"
+  );
+
+  button.addEventListener("click", () => {
+    const textarea1 = document.querySelector(
+      ".prevent-the-page-from-scrolling-to-an-element-when-it-is-focused__textarea"
+    );
+
+    // Option #1 Use the `preventScroll` option
+    // textarea1.focus({ preventScroll: true });
+
+    // Option #2 Scroll to the previous point
+    const x = window.scrollX;
+    const y = window.scrollY;
+    textarea1.focus();
+
+    window.scrollTo(x, y);
+  });
+};
+preventThePageFromScrolling();
