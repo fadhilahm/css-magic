@@ -1240,3 +1240,12 @@ const putCursorAtTheEndOfAnInput = () => {
   });
 };
 putCursorAtTheEndOfAnInput();
+
+// Remove all children of a node
+const removeAllChildrenOfANode = () => {
+  const parent1 = document.querySelector(".remove-all-children-of-a-node");
+  while (parent1.firstChild) {
+    parent1.removeChild(parent1.firstChild);
+  }
+};
+removeAllChildrenOfANode();
