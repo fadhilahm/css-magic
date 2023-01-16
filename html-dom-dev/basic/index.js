@@ -1217,3 +1217,6 @@ const preventThePageFromScrolling = () => {
   });
 };
 preventThePageFromScrolling();
+
+// Redirect to another page.
+// location.href = "https://google.com"
