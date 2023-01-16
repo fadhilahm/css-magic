@@ -1220,3 +1220,23 @@ preventThePageFromScrolling();
 
 // Redirect to another page.
 // location.href = "https://google.com"
+
+// Put cursor at the end of an input
+const putCursorAtTheEndOfAnInput = () => {
+  const input = document.querySelector(
+    ".put-cursor-at-the-end-of-an-input__input"
+  );
+  const button = document.querySelector(
+    ".put-cursor-at-the-end-of-an-input__button"
+  );
+
+  button.addEventListener("click", () => {
+    // Focus on the input element.
+    input.focus();
+
+    // Move the cursor to the end.
+    const length = input.value.length;
+    input.setSelectionRange(length, length);
+  });
+};
+putCursorAtTheEndOfAnInput();
