@@ -1257,3 +1257,18 @@ const reloadCurrentPage = () => {
   // Reload and ignore the POST data.
   // location.href = location.href
 };
+
+// Replace broken images.
+const replaceBrokenImages = () => {
+  // Assume that I want to replace all images on their page.
+  const images = document.querySelectorAll("img");
+
+  // Loop over them.
+  [].forEach.call(images, (ele) => {
+    ele.addEventListener("error", (e) => {
+      e.tar.src =
+        "https://cdn.mos.cms.futurecdn.net/pMGfBE5gnyuzxa6BGKAi3Q.jpg";
+    });
+  });
+};
+replaceBrokenImages();
