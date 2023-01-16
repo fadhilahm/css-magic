@@ -1249,3 +1249,11 @@ const removeAllChildrenOfANode = () => {
   }
 };
 removeAllChildrenOfANode();
+
+// Reload the current page.
+const reloadCurrentPage = () => {
+  // Reload and keep the POST data.
+  // location.reload();
+  // Reload and ignore the POST data.
+  // location.href = location.href
+};
