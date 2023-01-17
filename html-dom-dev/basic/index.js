@@ -1285,4 +1285,28 @@ const removeAnElement = () => {
     ele.parentNode.removeChild(ele);
   }
 };
-removeAnElement();
+// removeAnElement();
+
+// Replace an element
+const replaceAnElement = () => {
+  const newEle = document.createElement("btn");
+  newEle.innerHTML = "NEW EDIT";
+  newEle.classList.add(
+    "w-content",
+    "h-10",
+    "rounded-lg",
+    "shadow-m",
+    "bg-green-500",
+    "flex",
+    "items-center",
+    "justify-center",
+    "text-white",
+    "px-3"
+  );
+
+  const ele = document.querySelector(
+    ".put-cursor-at-the-end-of-an-input__button"
+  );
+  ele.parentNode.replaceChild(newEle, ele);
+};
+// replaceAnElement();
