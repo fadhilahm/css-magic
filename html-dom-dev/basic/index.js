@@ -1310,3 +1310,16 @@ const replaceAnElement = () => {
   ele.parentNode.replaceChild(newEle, ele);
 };
 // replaceAnElement();
+
+// Resize an iframe to fit its content.
+const resizeAnIframe = () => {
+  const frame = document.querySelector(".resize-an-iframe-to-fit-its-content");
+
+  // Get the height of the content.
+  const height = frame.contentDocument.body.scrollHeight;
+  console.log("🚀 ~ file: index.js:1320 ~ resizeAnIframe ~ height", height)
+
+  // Set the height of iframe.
+  frame.setAttribute("height", `${height}px`);
+};
+resizeAnIframe();
