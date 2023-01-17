@@ -1272,3 +1272,17 @@ const replaceBrokenImages = () => {
   });
 };
 replaceBrokenImages();
+
+// Remove an Element
+const removeAnElement = () => {
+  const ele = document.querySelector(".remove-all-children-of-a-node");
+
+  // 1. Use the remove method
+  // ele.remove();
+
+  // 2. Use the removeChild method
+  if (ele.parentNode) {
+    ele.parentNode.removeChild(ele);
+  }
+};
+removeAnElement();
