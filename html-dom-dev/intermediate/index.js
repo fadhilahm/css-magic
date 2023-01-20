@@ -52,3 +52,42 @@ const resizeTheWidthOfATextBoxToFitItsContentAutomatically = () => {
   });
 };
 resizeTheWidthOfATextBoxToFitItsContentAutomatically();
+
+// Scale a text to fit inside of an element
+const scaleATextToFitInsideOfAnElement = () => {
+  const measureWidth = (text, font) => {
+    // Create new `canvas` element
+    const canvas = document.createElement("canvas");
+
+    // Get the context
+    const context = canvas.getContext("2d");
+
+    // Set the font
+    context.font = font;
+
+    // Measure the text
+    const metrics = context.measureText(text);
+
+    // Return the width in pixels
+    return metrics.width;
+  };
+
+  // Query the element
+  const ele = document.querySelector(
+    ".scale-a-text-to-fit-inside-of-an-element"
+  );
+
+  // Get the styles
+  const styles = window.getComputedStyle(ele);
+
+  // Get the font size and font style
+  const font = styles.font;
+  const fontSize = parseInt(styles.fontSize);
+
+  const measured = measureWidth(ele.textContent, font);
+  const scale = ele.clientWidth / parseFloat(measured);
+
+  const scaleFontSize = Math.floor(scale * fontSize);
+  ele.style.fontSize = `${scaleFontSize}px`;
+};
+scaleATextToFitInsideOfAnElement();
