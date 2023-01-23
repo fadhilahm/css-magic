@@ -91,3 +91,30 @@ const scaleATextToFitInsideOfAnElement = () => {
   ele.style.fontSize = `${scaleFontSize}px`;
 };
 scaleATextToFitInsideOfAnElement();
+
+const scrollAnElementToEnsureItIsVisibleInAScrollableContainer = () => {
+  const scrollToBeVisible = (ele, container) => {
+    const eleTop = ele.offsetTop;
+    const eleBottom = eleTop + ele.clientHeight;
+
+    const containerTop = container.scrollTop;
+    const containerBottom = containerTop + container.clientHeight;
+
+    if (eleTop < containerTop) {
+      // Scroll to the top of container
+      container.scrollTop -= containerTop - eleTop;
+    } else if (eleBottom > containerBottom) {
+      // Scroll to the bottom of the container
+      container.scrollTop += eleBottom - containerBottom;
+    }
+  };
+
+  const container = document.querySelector(
+    ".scroll-an-element-to-ensure-it-is-visible-in-a-scrollable-container__container"
+  );
+  const ele = document.querySelector(
+    ".scroll-an-element-to-ensure-it-is-visible-in-a-scrollable-container__ele"
+  );
+  scrollToBeVisible(ele, container);
+};
+scrollAnElementToEnsureItIsVisibleInAScrollableContainer();
