@@ -118,3 +118,45 @@ const scrollAnElementToEnsureItIsVisibleInAScrollableContainer = () => {
   scrollToBeVisible(ele, container);
 };
 scrollAnElementToEnsureItIsVisibleInAScrollableContainer();
+
+// Save and restore the text selection.
+const saveAndRestoreTheTextSelection = () => {
+  // Save the selection
+  // Return a `Range` instance  if there is a selected text
+  const save = () => {
+    const selection = window.getSelection();
+    return selection.rangeCount === 0 ? null : selection;
+  };
+
+  // Restore the selection
+  // `range` is a `Range` object
+  const restore = (range) => {
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+  };
+  let savedString = null;
+  const textarea = document.querySelector(
+    ".save-and-restore-the-text-selection__textarea"
+  );
+  const saveButton = document.querySelector(
+    ".save-and-restore-the-text-selection__save"
+  );
+  const restoreButton = document.querySelector(
+    ".save-and-restore-the-text-selection__restore"
+  );
+
+  saveButton.addEventListener("click", () => {
+    const range = save();
+    if (range) {
+      savedString = range.toString();
+    }
+  });
+
+  restoreButton.addEventListener("click", () => {
+    if (savedString) {
+      textarea.value = savedString;
+    }
+  });
+};
+saveAndRestoreTheTextSelection();
