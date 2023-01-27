@@ -160,3 +160,22 @@ const saveAndRestoreTheTextSelection = () => {
   });
 };
 saveAndRestoreTheTextSelection();
+
+// Show a loading indicator when an iframe is being loaded.
+const showALoadingIndicatorWhenAnIframeIsBeingLoaded = () => {
+  const iframeEle = document.querySelector(
+    ".show-a-loading-indicator-when-an-iframe-is-being-loaded__iframe"
+  );
+  const loadingEle = document.querySelector(
+    ".show-a-loading-indicator-when-an-iframe-is-being-loaded__loading"
+  );
+
+  iframeEle.addEventListener("load", () => {
+    // Hide the loading indicator.
+    loadingEle.style.display = "none";
+
+    // Bring the iframe back.
+    iframeEle.style.opacity = 1;
+  });
+};
+showALoadingIndicatorWhenAnIframeIsBeingLoaded();
