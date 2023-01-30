@@ -82,10 +82,35 @@
     </div>
     <div class="flex flex-col my-3 py-3">
       <h2>Show a loading indicator when an iframe is being loaded</h2>
-      <div class="show-a-loading-indicator-when-an-iframe-is-being-loaded__container">
+      <div
+        class="show-a-loading-indicator-when-an-iframe-is-being-loaded__container"
+      >
         <!-- The loading indicator -->
-        <div class="show-a-loading-indicator-when-an-iframe-is-being-loaded__loading"></div>
-        <iframe class="show-a-loading-indicator-when-an-iframe-is-being-loaded__iframe" style="opacity: 0"></iframe>
+        <div
+          class="show-a-loading-indicator-when-an-iframe-is-being-loaded__loading"
+        ></div>
+        <iframe
+          class="show-a-loading-indicator-when-an-iframe-is-being-loaded__iframe"
+          style="opacity: 0"
+        ></iframe>
       </div>
+    </div>
+    <div class="flex flex-col my-3 py-3">
+      <h2>Show a custom context menu at clicked position</h2>
+      <div
+        class="show-a-custom-context-menu-at-clicked-position__bg flex w-full items-center justify-center bg-blue-600 text-white h-20 relative"
+      >
+        <span>Right-click me</span>
+        <ul
+          class="show-a-custom-context-menu-at-clicked-position__menu absolute flex invisible flex-col border-4 border-solid border-gray-800 bg-black"
+        >
+          <li class="p-2">Option 1</li>
+          <div class="border-b-2 border-solid border-gray-600"></div>
+          <li class="p-2">Option 2</li>
+          <div class="border-b-2 border-solid border-gray-600"></div>
+          <li class="p-2">Option 3</li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>

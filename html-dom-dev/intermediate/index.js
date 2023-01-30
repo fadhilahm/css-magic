@@ -179,3 +179,43 @@ const showALoadingIndicatorWhenAnIframeIsBeingLoaded = () => {
   });
 };
 showALoadingIndicatorWhenAnIframeIsBeingLoaded();
+
+// Show a custom context menu at clicked position
+const showACustomContextMenuAtClickedPosition = () => {
+  const bg = document.querySelector(
+    ".show-a-custom-context-menu-at-clicked-position__bg"
+  );
+  const menu = document.querySelector(
+    ".show-a-custom-context-menu-at-clicked-position__menu"
+  );
+  bg.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+
+    const rect = bg.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Set the position of the menu.
+    menu.style.top = `${y}px`;
+    menu.style.left = `${x}px`;
+
+    // Show the menu.
+    menu.classList.remove("invisible");
+
+    // Attach document-wide event listener.
+    document.addEventListener("click", documentClickHandler);
+  });
+
+  // Hide the menu when clicking outside of it.
+  const documentClickHandler = (e) => {
+    const isClickedOutside = !menu.contains(e.target);
+    if (isClickedOutside) {
+      // Hide the menu.
+      menu.classList.add("invisible");
+
+      // Remove the event handler.
+      document.removeEventListener("click", documentClickHandler);
+    }
+  };
+};
+showACustomContextMenuAtClickedPosition();
