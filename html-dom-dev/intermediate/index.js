@@ -219,3 +219,45 @@ const showACustomContextMenuAtClickedPosition = () => {
   };
 };
 showACustomContextMenuAtClickedPosition();
+
+// Show a ghost element when dragging an element.
+const showAGhostElementWhenDraggingAnElement = () => {
+  // Query the element.
+  const draggable = document.querySelector(
+    ".show-a-ghost-element-when-dragging-an-element__draggable"
+  );
+
+  // The ghost element.
+  let ghostEle;
+
+  draggable.addEventListener("dragstart", (e) => {
+    // Create the ghost element.
+    ghostEle = document.createElement("div");
+    ghostEle.classList.add(
+      "dragging",
+      "w-36",
+      "h-36",
+      "rounded-xl",
+      "shadow-xl",
+      "flex",
+      "items-center",
+      "justify-center",
+      "bg-blue-600",
+      "text-white",
+      "ring-black",
+      "ring-4"
+    );
+    ghostEle.innerHTML = "I am flying";
+
+    // Append it to `body`
+    document.body.appendChild(ghostEle);
+
+    // Customize the drag image.
+    e.dataTransfer.setDragImage(ghostEle, 0, 0);
+  });
+
+  draggable.addEventListener("dragend", (e) => {
+    document.body.removeChild(ghostEle);
+  });
+};
+showAGhostElementWhenDraggingAnElement();
