@@ -261,3 +261,51 @@ const showAGhostElementWhenDraggingAnElement = () => {
   });
 };
 showAGhostElementWhenDraggingAnElement();
+
+// Allow to enter particular characters only
+const allowToEnterParticularCharactersOnly = () => {
+  const ele = document.querySelector(
+    ".allow-to-enter-particular-characters-only"
+  );
+
+  let currentValue = "";
+
+  // Track the current cursor position.
+  const selection = {};
+
+  ele.addEventListener("keypress", (e) => {
+    // Get the code of pressed key.
+    const key = e.which || e.keyCode;
+
+    // o, 1, ..., 9 have key code of 48, 49, ..., 57, respectively
+    // Space has key code of 32
+    if (key !== 32 && (key < 48 || key > 57)) {
+      // Prevent the default action.
+      e.preventDefault();
+    }
+
+    const target = e.target;
+    selection = {
+      selectionStart: target.selectionStart,
+      selectionEnd: target.selectionEnd,
+    };
+  });
+
+  ele.addEventListener("input", (e) => {
+    const target = e.target;
+
+    // If users enter supported character (digits or space)
+    if (/^[0-9\s]*$/.test(target.value)) {
+      currentValue = target.value;
+    } else {
+      // Otherwise, restore the value.
+      // Note that in this case, `e.preventDefault()` doesn't help.
+      target.value = currentValue;
+      target.setSelectionRange(
+        selection.selectionStart,
+        selection.selectionEnd
+      );
+    }
+  });
+};
+allowToEnterParticularCharactersOnly();
