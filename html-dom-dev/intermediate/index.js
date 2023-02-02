@@ -309,3 +309,22 @@ const allowToEnterParticularCharactersOnly = () => {
   });
 };
 allowToEnterParticularCharactersOnly();
+
+// Calculate the size of scrollbar
+const calculateTheSizeOfScrollbar = () => {
+  const widthWithoutScrollbarSpan = document.querySelector(
+    ".calculate-the-size-of-scrollbar__width-wo-scrollbar"
+  );
+  const widthWithScrollbarSpan = document.querySelector(
+    ".calculate-the-size-of-scrollbar__width-w-scrollbar"
+  );
+  const scrollbarWidthSpan = document.querySelector(
+    ".calculate-the-size-of-scrollbar__width-scrollbar"
+  );
+
+  widthWithoutScrollbarSpan.innerHTML = document.body.clientWidth;
+  widthWithScrollbarSpan.innerHTML = document.body.offsetWidth;
+  scrollbarWidthSpan.innerHTML =
+    document.body.offsetWidth - document.body.clientWidth;
+};
+calculateTheSizeOfScrollbar();

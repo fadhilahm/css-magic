@@ -132,5 +132,37 @@
         <input type="text" class="allow-to-enter-particular-characters-only" />
       </div>
     </div>
+    <div class="flex flex-col my-3 py-3">
+      <h2>Calculate the size of the scrollbar</h2>
+      <div
+        class="flex items-center justify-center w-screen p-3 overflow-scroll"
+      >
+        <div
+          class="rounded-2xl p-3 bg-red-700 text-white items-center justify-center flex-col gap-y-1"
+        >
+          <div>
+            <span>Width without scrollbar (clientWidth) => </span
+            ><span
+              class="calculate-the-size-of-scrollbar__width-wo-scrollbar"
+            ></span>
+            <span>px</span>
+          </div>
+          <div>
+            <span>Width with scrollbar (offsetWidth) => </span
+            ><span
+              class="calculate-the-size-of-scrollbar__width-w-scrollbar"
+            ></span>
+            <span>px</span>
+          </div>
+          <div>
+            <span>Scrollbar width => </span
+            ><span
+              class="calculate-the-size-of-scrollbar__width-scrollbar"
+            ></span>
+            <span>px</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
