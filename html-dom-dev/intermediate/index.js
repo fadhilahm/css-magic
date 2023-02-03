@@ -328,3 +328,68 @@ const calculateTheSizeOfScrollbar = () => {
     document.body.offsetWidth - document.body.clientWidth;
 };
 calculateTheSizeOfScrollbar();
+
+// Change the website favicon
+const changeTheWebsiteFavicon = () => {
+  const setFavicon = (url) => {
+    // Find the current favicon element
+    const favicon = document.querySelector('link[rel="icon"]');
+    if (favicon) {
+      // Update the new link
+      favicon.href = url;
+    } else {
+      // Create new `link`
+      const link = document.createElement("link");
+      link.rel = "icon";
+      link.href = url;
+
+      // Append to the `head` element
+      document.head.appendChild(link);
+    }
+  };
+
+  // Use an emoji as the favicon
+  const emojiFavicon = (emoji) => {
+    // Create a canvas element
+    const canvas = document.createElement("canvas");
+    canvas.height = 64;
+    canvas.width = 64;
+
+    // Get the canvas context
+    const context = canvas.getContext("2d");
+    context.font = "64px serif";
+    context.fillText(emoji, 0, 64);
+
+    // Get the custom URL
+    const url = canvas.toDataURL();
+
+    // Update the favicon
+    setFavicon(url);
+  };
+
+  // emojiFavicon("🪄");
+
+  const changeFaviconOnInterval = () => {
+    let i = 0;
+    setInterval(() => {
+      const emojiList = [
+        "😩",
+        "😡",
+        "😳",
+        "🥶",
+        "🥵",
+        "😢",
+        "🫠",
+        "🤒",
+        "🤡",
+        "💩",
+      ];
+      const idx = i % emojiList.length;
+      const newEmoji = emojiList[idx];
+      emojiFavicon(newEmoji);
+      i++;
+    }, 500);
+  };
+  changeFaviconOnInterval();
+};
+changeTheWebsiteFavicon();
