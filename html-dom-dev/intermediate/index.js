@@ -393,3 +393,27 @@ const changeTheWebsiteFavicon = () => {
   changeFaviconOnInterval();
 };
 changeTheWebsiteFavicon();
+
+// Check if an element is scrollable
+const checkIfAnElementIsScrollable = () => {
+  const isScrollable = (ele) => {
+    // Compare the height to see if the element ahs scrollable content
+    const hasScrollableContent = ele.scrollHeight > ele.clientHeight;
+
+    // It's not enough because the element's `overflow-y` style can be set as `hidden` or `hidden !important`. In those cases, the scrollbar isn't shown.
+    const overflowYStyle = window.getComputedStyle(ele).overflowY;
+    const isOverflowHidden = overflowYStyle.indexOf("hidden") !== -1;
+
+    return hasScrollableContent && !isOverflowHidden;
+  };
+
+  const button = document.querySelector(
+    ".check-if-an-element-is-scrollable__button"
+  );
+  const text = document.querySelector(
+    ".check-if-an-element-is-scrollable__text"
+  );
+  const isEleScrollable = isScrollable(button);
+  text.innerHTML = `${isEleScrollable}`;
+};
+checkIfAnElementIsScrollable();
