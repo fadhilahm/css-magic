@@ -466,3 +466,6 @@ const copyTextToTheClipboard = () => {
   });
 };
 copyTextToTheClipboard();
+
+const communicationBetweenAnIframeAndItsParentWindow = () => {};
+communicationBetweenAnIframeAndItsParentWindow();

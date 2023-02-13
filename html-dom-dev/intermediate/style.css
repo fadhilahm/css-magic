@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .show-a-loading-indicator-when-an-iframe-is-being-loaded__container {
   /* To position the loading */
   position: relative;
