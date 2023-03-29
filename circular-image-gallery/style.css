@@ -1,0 +1,64 @@
+figure {
+  --_w: 500px;
+  --_r: calc((var(--_w) - var(--_sz)) / 2);
+  --_sz: 100px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  list-style-type: none;
+  inline-size: var(--_w);
+  padding: unset;
+  position: relative;
+}
+img {
+  --_x: calc(var(--_r) + (var(--_r) * cos(var(--_d))));
+  --_y: calc(var(--_r) + (var(--_r) * sin(var(--_d))));
+  border-radius: 50%;
+  display: grid;
+  height: var(--_sz);
+  left: var(--_x);
+  place-content: center;
+  position: absolute;
+  top: var(--_y);
+  transition: transform .2s ease-in;
+  width: var(--_sz);
+}
+figure img:nth-child(1) { --_d: 270deg; }
+figure img:nth-child(2) { --_d: 300deg; }
+figure img:nth-child(3) { --_d: 330deg; }
+figure img:nth-child(4) { --_d: 0deg; }
+figure img:nth-child(5) { --_d: 30deg; }
+figure img:nth-child(6) { --_d: 60deg; }
+figure img:nth-child(7) { --_d: 90deg; }
+figure img:nth-child(8) { --_d: 120deg; }
+figure img:nth-child(9) { --_d: 150deg; }
+figure img:nth-child(10) { --_d: 180deg; }
+figure img:nth-child(11) { --_d: 210deg; }
+figure img:nth-child(12) { --_d: 240deg; }
+
+html {
+  display: grid;
+  height: 100%;
+}
+body {
+  background: hsl(0, 15%, 75%);
+  display: grid;
+  place-content: center;
+}
+p {
+  display: none;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+@supports (left: calc(1px * cos(45deg))) {
+  img:hover {
+    transform: scale(1.4);
+  }
+}
+
+@supports not (left: calc(1px * cos(45deg))) {
+  p { display: block; }
+    img {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%,-50%) rotate(var(--_d)) translate(var(--_r)) rotate(calc(-1*var(--_d)))
+  }
+}
