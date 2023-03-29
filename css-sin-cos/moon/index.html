@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="index.js"></script>
+    <title>Clock</title>
+  </head>
+  <body class="flex flex-col justify-center items-center h-screen">
+    <p>
+      <small
+        >CSS sin() and cos() does <strong>NOT</strong> work in your
+        browser.</small
+      >
+    </p>
+    <form id="controls" class="app horizontal horizontal-labels">
+      <fieldset>
+        <label
+          >Number of rings
+          <input type="range" min="2" max="12" value="10" id="rings" />
+        </label>
+        <label
+          >Dots per ring
+          <input type="range" min="5" max="12" value="7" id="dots" />
+        </label>
+        <label
+          >Spread
+          <input type="range" min="10" max="40" value="40" id="spread" />
+        </label>
+      </fieldset>
+    </form>
+    <ul class="dots" id="app"></ul>
+  </body>
+</html>

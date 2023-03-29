@@ -1,0 +1,41 @@
+.dots {
+  --_w: 800px;
+  --_sz: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  list-style-type: none;
+  inline-size: var(--_w);
+  padding: unset;
+  position: relative;
+}
+.dots li {
+  --_x: calc(400px - (var(--_r) * cos(var(--_d))));
+  --_y: calc(400px - (var(--_r) * sin(var(--_d))));
+  background-color: var(--_bgc);
+  border-radius: 50%;
+  height: var(--_sz);
+  left: var(--_x);
+  position: absolute;
+  top: var(--_y);
+  width: var(--_sz);
+}
+
+html {
+  display: grid;
+  height: 100%;
+}
+body {
+  background: hsl(248, 50%, 25%);
+  color: hsl(248, 50%, 95%);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  margin-inline: auto;
+}
+p {
+  display: none;
+}
+
+@supports not (left: calc(1px * cos(45deg))) {
+  p {
+    display: block;
+  }
+}
